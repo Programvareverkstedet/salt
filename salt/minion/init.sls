@@ -11,3 +11,12 @@ salt-minion:
       - pkg: salt-minion
   pkg.installed: []
 {% endif %}
+
+/etc/cron.daily/pvv-salt:
+  file.managed:
+    - source: salt://salt/minion/pvv-salt.cron
+    - mode: 755
+{% if grains['osarch'] != 'ia64' %}
+    - require:
+      - pkg: salt-minion
+{% endif %}

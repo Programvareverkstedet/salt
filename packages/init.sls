@@ -6,7 +6,7 @@ include:
 
 # Ensure older debian has new enough salt-minion
 /etc/apt/sources.list.d/saltstack.list:
-{% if grains['oscodename'] in ('jessie', 'wheezy', 'squeeze') and grains['osarch'] != 'ia64' %}
+{% if grains['oscodename'] in ('jessie', 'wheezy', 'squeeze') and grains['osarch'] != 'ia64' and grains['osarch'] != 'powerpc' %}
   file.managed:
     - source: salt://packages/sources.list.d/saltstack.list.jinja
     - template: jinja
