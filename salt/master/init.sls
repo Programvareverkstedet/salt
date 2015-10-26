@@ -2,6 +2,10 @@
 # Uppsett på saltmaster-boksen
 #
 
+/etc/sudoers.d/saltmaster:
+  file.managed:
+    - source: salt://salt/master/saltmaster.sudo
+
 /usr/local/sbin/install-ssh-key:
   file.managed:
     - source: salt://salt/master/install-ssh-key
