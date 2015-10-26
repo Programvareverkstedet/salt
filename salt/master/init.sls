@@ -2,10 +2,6 @@
 # Uppsett på saltmaster-boksen
 #
 
-/etc/sudoers.d/saltmaster:
-  file.managed:
-    - source: salt://salt/master/saltmaster.sudo
-
 /usr/local/sbin/install-ssh-key:
   file.managed:
     - source: salt://salt/master/install-ssh-key
@@ -16,7 +12,7 @@
 
 modify_etc_bashrc:
   cmd.wait:
-    - name: "grep -q prepare-saltmaster-userdir /etc/bash.bashrc || echo 'if [ -x /usr/local/bin/prepare-saltmaster-userdir ]; then /usr/local/bin/prepare-saltmaster-userdir; fi' >> /etc/bash.bashrc"
+    - name: "grep -q prepare-saltmaster-userdir /etc/bash.bashrc || echo 'if [ -x /usr/local/bin/prepare-saltmaster-userdir ]; then /usr/local/bin/prepare-saltmaster-userdir || exit; fi' >> /etc/bash.bashrc"
     - watch:
       - file: /usr/local/bin/prepare-saltmaster-userdir
 
