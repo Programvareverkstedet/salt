@@ -24,15 +24,21 @@ modify_etc_bashrc:
   file.managed:
     - source: salt://salt/master/krb5.conf.saltmaster
 
-/etc/salt/master.d/environments.conf:
+/etc/salt/master.d/pvv.conf:
   file.managed:
-    - source: salt://salt/master/master.d/environments.conf.py
+    - source: salt://salt/master/master.d/pvv.conf.py
     - template: py
 
 salt-master:
   pkg.installed: []
   service.running:
     - watch:
-      - file: /etc/salt/master.d/environments.conf
+      - file: /etc/salt/master.d/pvv.conf
     - require:
       - pkg: salt-master
+
+salt-master-packages:
+  pkg.installed:
+    - pkgs:
+      - heimdal-clients
+      - libpam-krb5

@@ -1,6 +1,8 @@
+# passwd.pvv hentes via salt.pillar.file_tree-modulen, og selve filen
+# ligger i pillar/files/nodegroups/all/files/passwd.pvv
 /etc/passwd.pvv:
   file.managed:
-    - source: salt://passwd/passwd.pvv.nohash
+    - contents_pillar: files:passwd.pvv
 
 /usr/local/sbin/merge-passwd.pl:
   cmd.wait:
