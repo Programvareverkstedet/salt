@@ -24,7 +24,7 @@
 
 /etc/group.pvv:
   file.managed:
-    - source: salt://passwd/group.pvv
+    - contents_pillar: files:group.pvv
 
 /usr/local/sbin/merge-group.pl:
   cmd.wait:
