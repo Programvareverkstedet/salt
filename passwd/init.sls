@@ -2,7 +2,7 @@
 # ligger i pillar/files/nodegroups/all/files/passwd.pvv
 /etc/passwd.pvv:
   file.managed:
-    - contents_pillar: files:passwd.pvv
+    - contents_pillar: files:passwd:passwd.pvv
 
 /usr/local/sbin/merge-passwd.pl:
   cmd.wait:
@@ -24,7 +24,7 @@
 
 /etc/group.pvv:
   file.managed:
-    - contents_pillar: files:group.pvv
+    - contents_pillar: files:passwd:group.pvv
 
 /usr/local/sbin/merge-group.pl:
   cmd.wait:

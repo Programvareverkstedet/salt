@@ -42,3 +42,11 @@ salt-master-packages:
     - pkgs:
       - heimdal-clients
       - libpam-krb5
+
+{% for repository in [ "salt", "pillar" ] %}
+/local/adm/git/{{ repository }}.git/hooks:
+  file.recurse:
+    - source: salt://salt/master/git-hooks/{{ repository }}
+    - file_mode: 555
+    - dir_mode: 555
+{% endfor %}
