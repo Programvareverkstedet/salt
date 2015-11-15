@@ -2,7 +2,7 @@
 
 /local/quota/quota.txt:
   file.managed:
-    - source: salt://quota/quota.txt
+    - contents_pillar: files:quota:quota.txt
     - mode: 400
 
 /local/quota/makeexportsandquota.pl:
