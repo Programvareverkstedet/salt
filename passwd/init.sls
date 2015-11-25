@@ -8,6 +8,7 @@
   cmd.wait:
     - watch:
       - file: /etc/passwd.pvv
+      - file: /usr/local/sbin/merge-passwd.pl
   file.managed:
     - source: salt://passwd/merge-passwd.pl
     - mode: 755
@@ -30,6 +31,7 @@
   cmd.wait:
     - watch:
       - file: /etc/group.pvv
+      - file: /usr/local/sbin/merge-group.pl
   file.managed:
     - source: salt://passwd/merge-group.pl
 
