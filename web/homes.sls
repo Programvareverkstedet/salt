@@ -64,3 +64,8 @@
 /etc/apache2/certs/www.pvv.ntnu.no.key:
   file.managed:
     - source: salt://web/certs/www.pvv.ntnu.no.key
+
+# Note: used both in frontend.sls and homes.sls
+/etc/apache2/certs/DigiCertCA.crt:
+  file.managed:
+    - source: salt://web/certs/DigiCertCA.crt
