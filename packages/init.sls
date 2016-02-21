@@ -6,13 +6,13 @@ include:
 
 # Ensure older debian has new enough salt-minion
 /etc/apt/sources.list.d/saltstack.list:
-{% if grains['oscodename'] in ('jessie', 'wheezy', 'squeeze') and grains['osarch'] != 'ia64' and grains['osarch'] != 'powerpc' %}
+{% if grains.has_key('oscodename') and grains['oscodename'] in ('jessie', 'wheezy', 'squeeze') and grains['osarch'] != 'ia64' and grains['osarch'] != 'powerpc' %}
   file.managed:
     - source: salt://packages/sources.list.d/saltstack.list.jinja
     - template: jinja
     - context:
         oscodename: {{ grains['oscodename'] }}
-{% elif grains['oscodename'] == 'trusty' %}
+{% elif grains.has_key('oscodename') and grains['oscodename'] == 'trusty' %}
   file.managed:
     - source: salt://packages/sources.list.d/saltstack.list.{{ grains['oscodename'] }}
 {% else %}
@@ -20,7 +20,7 @@ include:
 {% endif %}
 
 /etc/apt/sources.list.d/squeeze-backports.list:
-{% if grains['oscodename'] == 'squeeze' %}
+{% if grains.has_key('oscodename') and grains['oscodename'] == 'squeeze' %}
   file.managed:
     - source: salt://packages/sources.list.d/squeeze-backports.list
 {% else %}
