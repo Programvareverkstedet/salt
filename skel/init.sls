@@ -13,8 +13,6 @@
 /local/skel/environment:
   file.managed:
     - source: salt://skel/env/environment@linux
-{% else %}
-syntax error to alert about unsupported architecture
 {% endif %}
 
 /local/skel/make-env.pl:
