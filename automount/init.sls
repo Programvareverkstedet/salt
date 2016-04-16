@@ -1,3 +1,8 @@
+{% set automount_service = {
+    'Linux': 'autofs',
+    'FreeBSD': 'automount',
+}.get(grains.kernel) %}
+
 /etc:
   file.recurse:
     - source: salt://automount/etc
@@ -6,14 +11,20 @@
   file.managed:
     - source: salt://automount/auto.master
 
-restart_autofs:
-  cmd.wait:
-    - name: 'rm -f /etc/auto_master && ln -s auto.master /etc/auto_master && /etc/init.d/autofs restart'
+# FIXME: Just dist the file to the correct place on each OS
+/etc/auto_master:
+  file.symlink:
+    - target: /etc/auto.master
+
+{{ automount_service }}:
+  service.running:
     - watch:
       - file: /etc/auto.master
 
+{% if grains['kernel'] == 'Linux' %}
 nfs.packages:
   pkg.installed:
   - pkgs:
     - nfs-common
     - autofs
+{% endif %}
