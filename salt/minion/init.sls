@@ -1,11 +1,16 @@
-/etc/salt/minion.d/environment.conf:
+{% set salt_config_dir = {
+    'Linux': '/etc/salt',
+    'FreeBSD': '/usr/local/etc/salt',
+}.get(grains.kernel) %}
+
+{{ salt_config_dir }}/minion.d/environment.conf:
   file.managed:
     - source: salt://salt/minion/minion.d/environment.conf
 
 salt-minion:
   service.running:
     - watch:
-      - file: /etc/salt/minion.d/environment.conf
+      - file: {{ salt_config_dir }}/minion.d/environment.conf
 {% if grains['osarch'] != 'ia64' %}
     - require:
       - pkg: salt-minion
