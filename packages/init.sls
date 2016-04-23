@@ -27,6 +27,13 @@ include:
   file.absent
 {% endif %}
 
+{% if grains.kernel == 'FreeBSD' }
+/usr/local/etc/pkg/repos/saltstack.conf:
+  file.managed:
+    - source: salt://{{ tpldir }}/saltstack_freebsd.conf
+    - makedirs: True
+{% endif %}
+
 {% if 'pkgsync' in grains['roles'] %}
 
 {% if 'web-homes' in grains['roles'] %}
