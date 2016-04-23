@@ -45,6 +45,7 @@
   'roles:file-server':
     - match: grain
     - quota.fileserver
+    - passwd.fileserver
     - spamassassin
 
   'roles:mysql-server':
