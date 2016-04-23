@@ -1,6 +1,6 @@
 # pvvpakke brukes hvis og bare hvis vi ikke ruker pkgsync
 
-/etc/cron.daily/pvvpakke:
+{{ pillar.cron_daily }}/pvvpakke:
 {% if 'pkgsync' in grains['roles'] and grains['kernel'] == 'Linux' %}
   file.absent
 {% else %}

@@ -17,7 +17,7 @@
     - watch:
       - file: {{ salt_config_dir }}/minion.d/environment.conf
 
-/etc/cron.daily/pvv-salt:
+{{ pillar.cron_daily }}/pvv-salt:
   file.managed:
     - source: salt://{{ tpldir }}/pvv-salt.cron
     - mode: 755
