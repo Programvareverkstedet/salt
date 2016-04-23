@@ -9,6 +9,8 @@ import grp
 ''' Ensure the user is present '''
 def user_present(pw_info):
     pw_info['createhome'] = False
+    if __grains__['kernel'] == 'FreeBSD' and pw_info['shell'] == '/bin/bash':
+        pw_info['shell'] = '/usr/local/bin/bash'
     return ( "user_" + pw_info["name"], { 'user.present': [ { a: b } for (a, b) in pw_info.iteritems() ] } )
 
 ''' Ensure the user is abssent '''
