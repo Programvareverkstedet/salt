@@ -8,12 +8,9 @@
     - source: salt://{{ tpldir }}/sperret
     - mode: 555
 
-{% if grains['kernel'] == 'Linux' %}
-
 /local/skel/environment:
   file.managed:
-    - source: salt://{{ tpldir }}/environment@linux
-{% endif %}
+    - source: salt://{{ tpldir }}/env/environment@{{ grains['kernel'] }}
 
 /local/skel/make-env.pl:
   cmd.wait:
@@ -21,7 +18,7 @@
       - file: /local/skel/environment
       - file: /local/skel/make-env.pl
   file.managed:
-    - source: salt://{{ tpldir }}/make-env.pl
+    - source: salt://{{ tpldir }}/env/make-env.pl
     - mode: 555
 
 /local/skel:

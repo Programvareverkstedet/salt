@@ -2,3 +2,4 @@
 /local/etc/motd:
   file.managed:
     - source: salt://{{ tpldir }}/motd
+    - makedirs: True

@@ -10,7 +10,7 @@
 
 {{ salt_config_dir }}/minion.d/environment.conf:
   file.managed:
-    - source: salt://{{ tpldir }}/environment.conf
+    - source: salt://{{ tpldir }}/minion.d/environment.conf
 
 {{ salt_minion_service }}:
   service.running:
