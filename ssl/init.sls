@@ -10,7 +10,7 @@
 
 {{ ssl_cert_directory }}/pvv-ca.pem:
   file.managed:
-    - source: salt://ssl/pvv-ca.pem
+    - source: salt://{{ tpldir }}/pvv-ca.pem
 
 install_ca:
   cmd.wait:

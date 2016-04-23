@@ -1,3 +1,3 @@
 /etc/cron.daily/postgresql-backup:
   file.managed:
-    - source: salt://db/postgresql/postgresql-backup.sh
+    - source: salt://{{ tpldir }}/postgresql-backup.sh

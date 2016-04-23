@@ -4,15 +4,15 @@
 
 /etc/sudoers.d/saltmaster:
   file.managed:
-    - source: salt://salt/master/saltmaster.sudo
+    - source: salt://{{ tpldir }}/saltmaster.sudo
 
 /usr/local/sbin/install-ssh-key:
   file.managed:
-    - source: salt://salt/master/install-ssh-key
+    - source: salt://{{ tpldir }}/install-ssh-key
 
 /usr/local/bin/prepare-saltmaster-userdir:
   file.managed:
-    - source: salt://salt/master/prepare-saltmaster-userdir
+    - source: salt://{{ tpldir }}/prepare-saltmaster-userdir
 
 modify_etc_bashrc:
   cmd.wait:
@@ -22,11 +22,11 @@ modify_etc_bashrc:
 
 /etc/krb5.conf:
   file.managed:
-    - source: salt://salt/master/krb5.conf.saltmaster
+    - source: salt://{{ tpldir }}/krb5.conf.saltmaster
 
 /etc/salt/master.d/pvv.conf:
   file.managed:
-    - source: salt://salt/master/master.d/pvv.conf.py
+    - source: salt://{{ tpldir }}/pvv.conf.py
     - template: py
 
 salt-master:
@@ -46,7 +46,7 @@ salt-master-packages:
 {% for repository in [ "salt", "pillar" ] %}
 /local/adm/git/{{ repository }}.git/hooks:
   file.recurse:
-    - source: salt://salt/master/git-hooks/{{ repository }}
+    - source: salt://{{ tpldir }}/{{ repository }}
     - file_mode: 555
     - dir_mode: 555
 {% endfor %}

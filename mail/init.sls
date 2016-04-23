@@ -1,13 +1,13 @@
 /etc/Muttrc:
   file.managed:
-    - source: salt://mail/Muttrc
+    - source: salt://{{ tpldir }}/Muttrc
 
 /etc/pine.conf:
   file.managed:
-    - source: salt://mail/pine.conf
+    - source: salt://{{ tpldir }}/pine.conf
 
 /etc/procmailrc:
   file.managed:
-    - source: salt://mail/procmailrc
+    - source: salt://{{ tpldir }}/procmailrc
 
 # FIXME: skal ssmtp.conf også distes?

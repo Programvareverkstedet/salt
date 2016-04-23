@@ -1,3 +1,3 @@
 /etc/ntp.conf:
   file.managed:
-    - source: salt://xntpd/ntp.conf
+    - source: salt://{{ tpldir }}/ntp.conf

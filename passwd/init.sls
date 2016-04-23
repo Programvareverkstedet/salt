@@ -16,7 +16,7 @@
       - file: /etc/passwd.pvv
       - file: /usr/local/sbin/merge-passwd.pl
   file.managed:
-    - source: salt://passwd/merge-passwd.pl
+    - source: salt://{{ tpldir }}/merge-passwd.pl
     - mode: 755
 
 /etc/group.pvv:
@@ -30,7 +30,7 @@
       - file: /etc/group.pvv
       - file: /usr/local/sbin/merge-group.pl
   file.managed:
-    - source: salt://passwd/merge-group.pl
+    - source: salt://{{ tpldir }}/merge-group.pl
 {% else %}
 # Use usersync.sls on any other OS, because it is cross-platform
 include:
@@ -39,4 +39,4 @@ include:
 
 /etc/netgroup:
   file.managed:
-    - source: salt://passwd/netgroup
+    - source: salt://{{ tpldir }}/netgroup

@@ -1,11 +1,11 @@
 /etc/shells:
   file.managed:
-    - source: salt://etc/shells
+    - source: salt://{{ tpldir }}/shells
 
 /etc/resolv.conf:
   file.managed:
-    - source: salt://etc/resolv.conf
+    - source: salt://{{ tpldir }}/resolv.conf
 
 /etc/krb5.conf:
   file.managed:
-    - source: salt://etc/krb5.conf
+    - source: salt://{{ tpldir }}/krb5.conf

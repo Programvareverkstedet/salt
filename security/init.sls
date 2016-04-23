@@ -2,6 +2,6 @@
 
 /etc/security/limits.conf:
   file.managed:
-    - source: salt://security/limits.conf
+    - source: salt://{{ tpldir }}/limits.conf
 
 {% endif %}

@@ -5,7 +5,7 @@
   file.absent
 {% else %}
   file.managed:
-    - source: salt://packages/pvvpakke.sh
+    - source: salt://{{ tpldir }}/pvvpakke.sh
     - mode: 700
 {% endif %}
 

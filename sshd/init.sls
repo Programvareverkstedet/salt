@@ -5,14 +5,14 @@
 /etc/ssh/sshd_config:
   file.managed:
 {% if 'fwlogin' in grains['roles'] %}
-    - source: salt://sshd/sshd_config.fwlogin
+    - source: salt://{{ tpldir }}/sshd_config.fwlogin
 {% else %}
-    - source: salt://sshd/sshd_config
+    - source: salt://{{ tpldir }}/sshd_config
 {% endif %}
 
 /etc/ssh/ssh_config:
   file.managed:
-    - source: salt://sshd/ssh_config
+    - source: salt://{{ tpldir }}/ssh_config
 
 # Distribute every keyfile we have in pillar.
 # Pillar only exposes the key files which belong on this host.

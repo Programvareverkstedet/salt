@@ -1,3 +1,3 @@
 /usr/local/etc/mail/spamassassin/local.cf:
   file.managed:
-    - source: salt://spamassassin/local.cf
+    - source: salt://{{ tpldir }}/local.cf

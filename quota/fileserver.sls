@@ -10,12 +10,12 @@
     - watch:
       - file: /local/quota/quota.txt
   file.managed:
-    - source: salt://quota/makeexportsandquota.pl
+    - source: salt://{{ tpldir }}/makeexportsandquota.pl
     - mode: 500
 
 /etc/init.d/pvv-quotas:
   file.managed:
-    - source: salt://quota/pvv-quotas.initscript
+    - source: salt://{{ tpldir }}/pvv-quotas.initscript
     - mode: 500
 
 configure_initscript:
@@ -26,10 +26,10 @@ configure_initscript:
 
 /local/quota/userfiles.pl:
   file.managed:
-    - source: salt://quota/userfiles.pl
+    - source: salt://{{ tpldir }}/userfiles.pl
     - mode: 500
 
 /etc/cron.daily/pvv-warnmailquota:
   file.managed:
-    - source: salt://quota/pvv-warnmailquota
+    - source: salt://{{ tpldir }}/pvv-warnmailquota
     - mode: 544

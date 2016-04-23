@@ -13,7 +13,7 @@ def user_present(pw_info):
         pw_info['shell'] = '/usr/local/bin/bash'
     return ( "user_" + pw_info["name"], { 'user.present': [ { a: b } for (a, b) in pw_info.iteritems() ] } )
 
-''' Ensure the user is abssent '''
+''' Ensure the user is absent '''
 def user_absent(user):
     return ( "user_" + user, { 'user.absent': [ { 'name': user, 'purge': False } ] } )
 
@@ -21,7 +21,7 @@ def user_absent(user):
 def group_present(group_info):
     return ( "group_" + group_info["name"], { 'group.present': [ { a: b } for (a, b) in group_info.iteritems() ] } )
 
-''' Ensure the group is abssent '''
+''' Ensure the group is absent '''
 def group_absent(group):
     return ( "group_" + group, { 'group.absent': [ { 'name': group } ] } )
 

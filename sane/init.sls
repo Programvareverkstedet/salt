@@ -1,3 +1,3 @@
 /etc/sane.d:
   file.recurse:
-    - source: salt://sane/sane.d
+    - source: salt://{{ tpldir }}/sane.d

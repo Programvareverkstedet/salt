@@ -13,7 +13,7 @@
 
 /usr/local/sbin/wtmptail:
   file.managed:
-    - source: salt://wtmptail/wtmptail@386linuxlibc5
+    - source: salt://{{ tpldir }}/wtmptail@386linuxlibc5
     - mode: 555
 
 #
@@ -22,7 +22,7 @@
 
 /etc/rc.d/init.d/wtmptail:
   file.managed:
-    - source: salt://wtmptail/wtmptail.init
+    - source: salt://{{ tpldir }}/wtmptail.init
     - mode: 555
 
 # Trigger-kommandoer

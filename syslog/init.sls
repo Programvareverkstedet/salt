@@ -1,6 +1,6 @@
 /etc/rsyslog.d/pvv.conf:
   file.managed:
-    - source: salt://syslog/rsyslog_pvv.conf
+    - source: salt://{{ tpldir }}/rsyslog_pvv.conf
 
 restart_syslog:
   cmd.wait:

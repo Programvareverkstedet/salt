@@ -4,8 +4,8 @@
 
 /etc/X11/Sessions/PVV-Session:
   file.managed:
-    - source: salt://X11/PVV-Session
+    - source: salt://{{ tpldir }}/PVV-Session
 
 /etc/X11/sessions/PVV-Session.desktop:
   file.managed:
-    - source: salt://X11/PVV-Session.desktop
+    - source: salt://{{ tpldir }}/PVV-Session.desktop

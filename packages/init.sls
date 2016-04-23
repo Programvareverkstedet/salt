@@ -8,13 +8,13 @@ include:
 /etc/apt/sources.list.d/saltstack.list:
 {% if grains.has_key('oscodename') and grains['oscodename'] in ('jessie', 'wheezy', 'squeeze') and grains['osarch'] != 'ia64' and grains['osarch'] != 'powerpc' %}
   file.managed:
-    - source: salt://packages/sources.list.d/saltstack.list.jinja
+    - source: salt://{{ tpldir }}/saltstack.list.jinja
     - template: jinja
     - context:
         oscodename: {{ grains['oscodename'] }}
 {% elif grains.has_key('oscodename') and grains['oscodename'] == 'trusty' %}
   file.managed:
-    - source: salt://packages/sources.list.d/saltstack.list.{{ grains['oscodename'] }}
+    - source: salt://{{ tpldir }}/saltstack.list.{{ grains['oscodename'] }}
 {% else %}
   file.absent
 {% endif %}
@@ -22,7 +22,7 @@ include:
 /etc/apt/sources.list.d/squeeze-backports.list:
 {% if grains.has_key('oscodename') and grains['oscodename'] == 'squeeze' %}
   file.managed:
-    - source: salt://packages/sources.list.d/squeeze-backports.list
+    - source: salt://{{ tpldir }}/squeeze-backports.list
 {% else %}
   file.absent
 {% endif %}
@@ -37,14 +37,14 @@ include:
 
 /etc/pkgsync/musthave:
   file.managed:
-    - source: salt://packages/{{ syncdir }}/musthave
+    - source: salt://{{ tpldir }}/musthave
 
 /etc/pkgsync/mayhave:
   file.managed:
-    - source: salt://packages/{{ syncdir }}/mayhave
+    - source: salt://{{ tpldir }}/mayhave
 
 /etc/pkgsync/maynothave:
   file.managed:
-    - source: salt://packages/{{ syncdir }}/maynothave
+    - source: salt://{{ tpldir }}/maynothave
 
 {% endif %}

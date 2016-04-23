@@ -10,7 +10,7 @@
 
 {{ cups_config_directory }}/client.conf:
   file.managed:
-    - source: salt://cups/client.conf
+    - source: salt://{{ tpldir }}/client.conf
 
 {{ cups_service_name }}:
   service.running:

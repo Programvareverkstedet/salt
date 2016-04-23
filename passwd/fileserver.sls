@@ -5,5 +5,5 @@
     - watch:
       - file: /etc/passwd.pvv
   file.managed:
-    - source: salt://passwd/make-homes.pl
+    - source: salt://{{ tpldir }}/make-homes.pl
     - mode: 755

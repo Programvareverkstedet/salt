@@ -5,11 +5,11 @@
 
 /etc:
   file.recurse:
-    - source: salt://automount/etc
+    - source: salt://{{ tpldir }}/etc
 
 /etc/auto.master:
   file.managed:
-    - source: salt://automount/auto.master
+    - source: salt://{{ tpldir }}/auto.master
 
 # FIXME: Just dist the file to the correct place on each OS
 /etc/auto_master:

@@ -1,18 +1,18 @@
 /bin/msgsh:
   file.managed:
-    - source: salt://skel/msgsh
+    - source: salt://{{ tpldir }}/msgsh
     - mode: 555
 
 /bin/sperret:
   file.managed:
-    - source: salt://skel/sperret
+    - source: salt://{{ tpldir }}/sperret
     - mode: 555
 
 {% if grains['kernel'] == 'Linux' %}
 
 /local/skel/environment:
   file.managed:
-    - source: salt://skel/env/environment@linux
+    - source: salt://{{ tpldir }}/environment@linux
 {% endif %}
 
 /local/skel/make-env.pl:
@@ -21,16 +21,16 @@
       - file: /local/skel/environment
       - file: /local/skel/make-env.pl
   file.managed:
-    - source: salt://skel/env/make-env.pl
+    - source: salt://{{ tpldir }}/make-env.pl
     - mode: 555
 
 /local/skel:
   file.recurse:
-    - source: salt://skel/files
+    - source: salt://{{ tpldir }}/files
 
 /local/skel/wmrcmk:
   file.recurse:
-    - source: salt://skel/wmrc
+    - source: salt://{{ tpldir }}/wmrc
 
 make_wmrc:
   cmd.wait:
