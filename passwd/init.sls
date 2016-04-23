@@ -33,8 +33,8 @@
     - source: salt://{{ tpldir }}/merge-group.pl
 {% else %}
 # Use usersync.sls on any other OS, because it is cross-platform
-include:
-  - .usersync
+#include:
+#  - .usersync
 {% endif %}
 
 /etc/netgroup:
