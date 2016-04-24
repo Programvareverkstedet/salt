@@ -26,7 +26,7 @@ modify_etc_bashrc:
 
 /etc/salt/master.d/pvv.conf:
   file.managed:
-    - source: salt://{{ tpldir }}/pvv.conf.py
+    - source: salt://{{ tpldir }}/master.d/pvv.conf.py
     - template: py
 
 salt-master:
@@ -46,7 +46,7 @@ salt-master-packages:
 {% for repository in [ "salt", "pillar" ] %}
 /local/adm/git/{{ repository }}.git/hooks:
   file.recurse:
-    - source: salt://{{ tpldir }}/{{ repository }}
+    - source: salt://{{ tpldir }}/git-hooks/{{ repository }}
     - file_mode: 555
     - dir_mode: 555
 {% endfor %}

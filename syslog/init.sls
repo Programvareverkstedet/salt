@@ -25,6 +25,5 @@
 {{ syslog_service }}:
   service.running:
     - enable: True
-    - reload: True
     - watch:
       - file: {{ syslog_config_file }}
