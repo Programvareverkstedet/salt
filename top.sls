@@ -15,11 +15,9 @@
   'roles:standard':
     - match: grain
     - automount
-    - cups
     - detach
     - etc
     - hosts
-    - lprng
     - mail
     - motd
     - passwd
@@ -62,3 +60,5 @@
   'roles:desktop':
     - match: grain
     - X11
+    - cups
+    - lprng
