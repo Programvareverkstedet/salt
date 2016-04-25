@@ -28,15 +28,15 @@
 /etc/apache2/sites-available/www.pvv.ntnu.no.conf:
 {% endif %}
   file.managed:
-    - source: salt://{{ tpldir }}/www.pvv.ntnu.no.homes
+    - source: salt://{{ tpldir }}/sites-available/www.pvv.ntnu.no.homes
 
 /etc/apache2/mods-available/userdir.conf:
   file.managed:
-    - source: salt://{{ tpldir }}/userdir.conf
+    - source: salt://{{ tpldir }}/mods-available/userdir.conf
 
 /etc/apache2/mods-available/dir.conf:
   file.managed:
-    - source: salt://{{ tpldir }}/dir.conf
+    - source: salt://{{ tpldir }}/mods-available/dir.conf
 
 /etc/php5/conf.d/php_pvv.ini:
   file.managed:
@@ -49,7 +49,7 @@
 
 /etc/squirrelmail/config_local.php:
   file.managed:
-    - source: salt://{{ tpldir }}/config_local.php
+    - source: salt://{{ tpldir }}/webmail/config_local.php
 
 /usr/local/bin/pvv-php-sendmail-wrapper:
   file.managed:
@@ -58,14 +58,14 @@
 # Note: used both in frontend.sls and homes.sls
 /etc/apache2/certs/www.pvv.ntnu.no.crt:
   file.managed:
-    - source: salt://{{ tpldir }}/www.pvv.ntnu.no.crt
+    - source: salt://{{ tpldir }}/certs/www.pvv.ntnu.no.crt
 
 # Note: used both in frontend.sls and homes.sls
 /etc/apache2/certs/www.pvv.ntnu.no.key:
   file.managed:
-    - source: salt://{{ tpldir }}/www.pvv.ntnu.no.key
+    - source: salt://{{ tpldir }}/certs/www.pvv.ntnu.no.key
 
 # Note: used both in frontend.sls and homes.sls
 /etc/apache2/certs/DigiCertCA.crt:
   file.managed:
-    - source: salt://{{ tpldir }}/DigiCertCA.crt
+    - source: salt://{{ tpldir }}/certs/DigiCertCA.crt

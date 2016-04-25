@@ -5,6 +5,11 @@
 {{ env }}:
   '*':
     - salt.minion
+    - rootrc
+    - security
+    - syslog
+    #- wtmptail
+    - xntpd
 
   # Konfig som skal til alle unntatt lommel, som er salt-master
   'roles:standard':
@@ -20,27 +25,17 @@
     - passwd
     - packages
     - quota
-    - rootrc
     - rootrc.authorized_keys
     - sane
-    - security
     - skel
     - sshd
     - ssl
-    - syslog
-    #- wtmptail
-    - xntpd
 
   # Salt-master er ikke medlem av roles:standard
   'roles:salt-master':
     - match: grain
     - packages.autoupdates
     - salt.master
-    - security
-    - rootrc
-    - syslog
-    #- wtmptail
-    - xntpd
 
   'roles:file-server':
     - match: grain
