@@ -5,6 +5,7 @@
 import sys
 import pwd
 import grp
+import os
 
 ''' Ensure the user is present '''
 def user_present(pw_info):
@@ -26,6 +27,10 @@ def group_absent(group):
     return ( "group_" + group, { 'group.absent': [ { 'name': group } ] } )
 
 def run():
+    # Skip all of this if SKIP_SLOW is defined in the enviroment
+    if os.environ.get("SKIP_SLOW") != None:
+        return {}
+
     min_uid = __pillar__['passwd']['min_uid']
     min_gid = __pillar__['passwd']['min_gid']
     passwd = __pillar__['passwd']['passwd.pvv']
