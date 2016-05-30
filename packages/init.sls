@@ -3,6 +3,16 @@
 include:
   - packages.autoupdates
 
+/etc/apt/sources.list.d/debian-backports.list:
+{% if grains.os == 'Debian' %}
+  file.managed:
+    - contents: |
+        deb http://ftp.debian.org/debian {{ grains.oscodename }}-backports main
+        deb-src http://ftp.debian.org/debian {{ grains.oscodename }}-backports main
+{% else %}
+  file.absent
+{% endif %}
+
 {% if 'pkgsync' in grains.roles %}
 
 {% if 'web-homes' in grains.roles %}
