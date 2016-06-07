@@ -48,5 +48,43 @@ standard_packages:
       - aspell-en
       - aspell-no
       - vim-latexsuite
+      # Revision control
+      - bzr
+      - cvs
+      - darcs
+      - git
+      - git-arch
+      - git-buildpackage
+      - git-cvs
+      - git-doc
+      - git-email
+      - git-remote-bzr
+      - git-svn
+      - hgsubversion
+      - mercurial
+      - mercurial-git
+      - rcs
+      - subversion
+      # DBMS
+      - mysql-client
+      - postgresql-client
+      - sqlite3
+      # Software development
+      - autoconf
+      - automake
+      - autotools-dev
+      - cpp
+      - distcc
+      - g++
+      - gawk
+      - gcc
+      - indent
+      - perl-doc
+      - ruby
+      - sbcl
+      - sbcl-doc
+      - slime
+      - valgrind
+      - gfortran
 
 {% endif %}
