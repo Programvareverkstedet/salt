@@ -4,43 +4,22 @@
 #       å teste på eldre salt må du hardkode brukernavnet ditt nedenfor.
 {{ env }}:
   '*':
+    - mandatory
     - salt.minion
-    - rootrc
-    - security
-    - syslog
-    #- wtmptail
-    - xntpd
 
   # Konfig som skal til alle unntatt lommel, som er salt-master
   'roles:standard':
     - match: grain
-    - automount
-    - detach
-    - etc
-    - kerberos
-    - hosts
-    - mail
-    - motd
-    - passwd
-    - packages
-    - quota
-    - rootrc.authorized_keys
-    - sane
-    - skel
-    - sshd
-    - ssl
+    - standard
 
   # Salt-master er ikke medlem av roles:standard
   'roles:salt-master':
     - match: grain
-    - packages.autoupdates
     - salt.master
 
   'roles:file-server':
     - match: grain
-    - quota.fileserver
-    - passwd.fileserver
-    - spamassassin
+    - fileserver
 
   'roles:mysql-server':
     - match: grain
@@ -60,6 +39,4 @@
 
   'roles:desktop':
     - match: grain
-    - X11
-    - cups
-    - lprng
+    - desktop

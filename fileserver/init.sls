@@ -1,0 +1,5 @@
+include:
+  - .quota
+  - .passwd
+  - .spamassassin
+

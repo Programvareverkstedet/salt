@@ -1,8 +1,5 @@
 # Package management
 
-include:
-  - packages.autoupdates
-
 /etc/apt/sources.list.d/debian-backports.list:
 {% if grains.os == 'Debian' %}
   file.managed:
