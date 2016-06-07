@@ -33,21 +33,19 @@ standard_mailirc_packages:
       - mutt
       - ncftp
       - oidentd
-      - screen
       - slrn
       - tin
+      - screen
       - tmux
       - weechat
 
+# See also mandatory_editor_packages in ../mandatory/init.sls
 standard_editor_packages:
   pkg.installed:
     - pkgs:
-      - emacs
       - aspell
       - aspell-en
       - aspell-no
-      - joe
-      - vim
       - vim-latexsuite
 
 standard_misc_packages:
