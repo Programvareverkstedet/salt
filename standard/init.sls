@@ -18,39 +18,35 @@ include:
 
 {% if grains.os_family is defined and grains.os_family == 'Debian' %}
 
-standard_mailirc_packages:
+# See also mandatory_packages in ../mandatory/init.sls
+standard_packages:
   pkg.installed:
     - pkgs:
-      - alpine
+      # IRC clients
       - ircii
       - irssi
       - irssi-scripts
       - irssi-plugin-xmpp
-      - links
-      - lynx
+      - oidentd
+      - weechat
+      # Text-mode mail/news clients/software
+      - alpine
       - maildrop
       - mailutils
       - mutt
-      - ncftp
-      - oidentd
       - slrn
       - tin
+      # Text-mode browsers/FTP clients
+      - links
+      - lynx
+      - ncftp
+      # Screen and friends
       - screen
       - tmux
-      - weechat
-
-# See also mandatory_editor_packages in ../mandatory/init.sls
-standard_editor_packages:
-  pkg.installed:
-    - pkgs:
+      # Editors and spellchecking
       - aspell
       - aspell-en
       - aspell-no
       - vim-latexsuite
-
-standard_misc_packages:
-  pkg.installed:
-    - pkgs:
-      - lilypond
 
 {% endif %}

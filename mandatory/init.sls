@@ -6,7 +6,7 @@ include:
   #- .wtmptail
   - .xntpd
 
-mandatory_editor_packages:
+mandatory_packages:
   pkg.installed:
     - pkgs:
       - emacs

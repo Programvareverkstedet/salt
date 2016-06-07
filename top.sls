@@ -12,6 +12,10 @@
     - match: grain
     - standard
 
+  'roles:fwlogin':
+    - match: grain
+    - fwlogin
+
   # Salt-master er ikke medlem av roles:standard
   'roles:salt-master':
     - match: grain
