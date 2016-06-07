@@ -3,23 +3,23 @@
     'FreeBSD': 'automount',
 }.get(grains.kernel) %}
 
+{% set automount_file = {
+    'autofs': '/etc/auto.master',
+    'automount': '/etc/auto_master',
+}.get(automount_service) %}
+
 /etc:
   file.recurse:
     - source: salt://{{ tpldir }}/etc
 
-/etc/auto.master:
+{{ automount_file }}:
   file.managed:
     - source: salt://{{ tpldir }}/auto.master
-
-# FIXME: Just dist the file to the correct place on each OS
-/etc/auto_master:
-  file.symlink:
-    - target: /etc/auto.master
 
 {{ automount_service }}:
   service.running:
     - watch:
-      - file: /etc/auto.master
+      - file: {{ automount_file }}
 
 {% if grains['kernel'] == 'Linux' %}
 nfs.packages:

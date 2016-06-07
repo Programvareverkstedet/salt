@@ -17,6 +17,7 @@
     - automount
     - detach
     - etc
+    - kerberos
     - hosts
     - mail
     - motd
