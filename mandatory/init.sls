@@ -4,7 +4,7 @@ include:
   - .security
   - .syslog
   #- .wtmptail
-  - .xntpd
+  - .ntp
 
 mandatory_packages:
   pkg.installed:
