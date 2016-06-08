@@ -81,10 +81,6 @@ standard_packages:
       - indent
       - perl-doc
       - ruby
-      - sbcl
-      - sbcl-doc
-      - slime
       - valgrind
-      - gfortran
 
 {% endif %}
