@@ -51,14 +51,11 @@ standard_packages:
       # Revision control
       - bzr
       - cvs
-      - darcs
       - git
       - git-arch
-      - git-buildpackage
       - git-cvs
       - git-doc
       - git-email
-      - git-remote-bzr
       - git-svn
       - hgsubversion
       - mercurial
@@ -81,6 +78,8 @@ standard_packages:
       - indent
       - perl-doc
       - ruby
+{% if grains.osarch != 'ia64' %}
       - valgrind
+{% endif %}
 
 {% endif %}
