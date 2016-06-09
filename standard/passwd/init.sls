@@ -19,5 +19,12 @@ include:
 sh_packages:
   pkg.installed:
     - pkgs:
+# tcsh is only included in FreeBSD
+{% if grains.kernel != 'FreeBSD' %}
       - tcsh
+{% endif %}
+# bash is not included in FreeBSD
+{% if grains.kernel = 'FreeBSD' %}
+      - bash
+{% endif %}
       - zsh
