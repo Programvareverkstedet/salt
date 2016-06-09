@@ -15,3 +15,9 @@ include:
 /etc/netgroup:
   file.managed:
     - source: salt://{{ tpldir }}/netgroup
+
+sh_packages:
+  pkg.installed:
+    - pkgs:
+      - tcsh
+      - zsh
