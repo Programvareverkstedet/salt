@@ -78,6 +78,9 @@ standard_packages:
       - indent
       - perl-doc
       - ruby
+      # Misc toys/games
+      - figlet
+      - fortune
 {% if grains.osarch != 'ia64' %}
       - valgrind
 {% endif %}
