@@ -7,6 +7,7 @@ include:
   - .hosts
   - .mail
   - .motd
+  - .mysql-client
   - .passwd
   - .packages
   - .quota
