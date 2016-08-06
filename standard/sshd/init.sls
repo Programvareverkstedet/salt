@@ -2,12 +2,27 @@
 # konfigfiler og initscripts for sshd.
 #
 
+{% set sshd_service = {
+    'Debian': 'ssh',
+    'FreeBSD': 'sshd',
+}.get(grains.os_family) %}
+
+{% set sftp_path = {
+    'Debian': '/usr/lib/sftp-server',
+    'FreeBSD': '/usr/libexec/sftp-server',
+}.get(grains.os_family) %}
+
+
 /etc/ssh/sshd_config:
   file.managed:
+    - source: salt://{{ tpldir }}/sshd_config.jinja
+    - template: jinja
+    - context:
+      sftp_path: {{ sftp_path }}
 {% if 'fwlogin' in grains['roles'] %}
-    - source: salt://{{ tpldir }}/sshd_config.fwlogin
+      ports: [22, 80, 443]
 {% else %}
-    - source: salt://{{ tpldir }}/sshd_config
+      ports: [22]
 {% endif %}
 
 /etc/ssh/ssh_config:
@@ -29,3 +44,9 @@
     - mode: 600
 {% endif %}
 {% endfor %}
+
+sshd-service:
+  service.running:
+    - name: {{ sshd_service }}
+    - watch:
+      - file: /etc/ssh/sshd_config
