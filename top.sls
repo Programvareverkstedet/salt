@@ -2,7 +2,7 @@
 # setter saltenv til. Dette lar oss bruke samme innhold i filen uansett environment.
 # Merk: Dette virker bare om salt er på versjon 2015.5.3 (Lithium) og nyere, så om du trenger
 #       å teste på eldre salt må du hardkode brukernavnet ditt nedenfor.
-{{ env }}:
+{{ saltenv }}:
   '*':
     - mandatory
     - salt.minion
