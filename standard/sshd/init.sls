@@ -5,6 +5,7 @@
 {% set sshd_service = {
     'Debian': 'ssh',
     'FreeBSD': 'sshd',
+    'Arch': 'sshd'
 }.get(grains.os_family) %}
 
 {% set sftp_path = {
