@@ -3,11 +3,13 @@
 {% set syslog_service = {
     'Debian': 'rsyslog',
     'FreeBSD': 'syslogd',
+    'Arch': 'rsyslogd',
 }.get(grains.os_family) %}
 
 {% set syslog_config_file = {
     'Debian': '/etc/rsyslog.d/pvv.conf',
     'FreeBSD': '/etc/syslog.conf',
+    'Arch': '/etc/rsyslog.conf',
 }.get(grains.os_family) %}
 
 {{ syslog_config_file }}:
