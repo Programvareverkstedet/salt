@@ -3,7 +3,7 @@
 {% set syslog_service = {
     'Debian': 'rsyslog',
     'FreeBSD': 'syslogd',
-    'Arch': 'rsyslogd',
+    'Arch': 'rsyslog',
 }.get(grains.os_family) %}
 
 {% set syslog_config_file = {
