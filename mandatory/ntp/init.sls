@@ -8,7 +8,9 @@
     - source: salt://{{ tpldir }}/ntp.conf
 
 {{ ntp_service }}:
-  pkg.installed: []
+  pkg.installed:
+    - pkgs:
+      - ntp
   service.running:
     - watch:
       - file: /etc/ntp.conf
