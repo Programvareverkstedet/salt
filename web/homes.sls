@@ -49,13 +49,31 @@ include:
   file.managed:
     - source: salt://{{ tpldir }}/pvv-php-sendmail-wrapper
 
-web_homes_packages:
+packages_web_homes:
   pkg.installed:
     - pkgs:
       - apache2
-      - libapache2-mod-php
       - libapache2-mod-lisp
       - libapache2-mod-rpaf
+      - jhead
+      - imagemagick
+      - ruby
+      - ikiwiki
+      - rails
+      - rcs
+      - blosxom
+      - pyblosxom
+      - mediawiki
+      - nanoblogger
+      - gnuplot
+      - gnuplot-nox
+      - make
+      - source-highlight
+
+packages_web_homes_php:
+  pkg.installed:
+    - pkgs:
+      - libapache2-mod-php
       - php-cgi
       - php-cli
       - php-curl
@@ -69,18 +87,10 @@ web_homes_packages:
       - php-xsl
       - php-json
       - php-fpdf
-      - jhead
-      - imagemagick
-      - ruby
-      - ikiwiki
-      - rails
-      - rcs
-      - blosxom
-      - pyblosxom
-      - mediawiki
-      - nanoblogger
 
-      #diverse forespurt og deres deps
+packages_web_homes_python:
+  pkg.installed:
+    - pkgs:
       - python-kid
       - python2.7
       - python-xapian
@@ -90,17 +100,12 @@ web_homes_packages:
       - python-egenix-mxdatetime
       - python-egenix-mxtools
 
-#      - gnuplot
-#      - gnuplot-nox
-#      - gnuplot-x11
-#
-#      - libtemplate-perl
-#      - libjson-perl
-#      - libdbi-perl
+packages_web_homes_perl:
+  pkg.installed:
+    - pkgs:
+      - libtemplate-perl
+      - libjson-perl
+      - libdbi-perl
       - libdbd-mysql-perl
       - libdbd-pg-perl
       - libdbd-sqlite3-perl
-
-      - make
-
-      - source-highlight
