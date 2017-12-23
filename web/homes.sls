@@ -12,7 +12,7 @@ include:
 {% endif %}
       - file: /etc/apache2/mods-available/userdir.conf
       - file: /etc/apache2/mods-available/dir.conf
-      - file: /etc/php/7.0/apache2/conf.d/pvv.ini
+      - file: /etc/php/7.0/apache2/conf.d/php_pvv.ini
       - file: /usr/local/sbin/apache-logger
       - file: /etc/apache2/certs/www.pvv.ntnu.no.crt
       - file: /etc/apache2/certs/www.pvv.ntnu.no.key
