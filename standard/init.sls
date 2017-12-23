@@ -60,7 +60,6 @@ standard_packages:
       - git-svn
       - hgsubversion
       - mercurial
-      - mercurial-git
       - rcs
       - subversion
       # DBMS
@@ -81,7 +80,7 @@ standard_packages:
       - ruby
       # Misc toys/games
       - figlet
-      - fortune
+      - fortunes
 {% if grains.osarch != 'ia64' %}
       - valgrind
 {% endif %}
