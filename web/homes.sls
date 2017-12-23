@@ -90,17 +90,17 @@ web_homes_packages:
       - python-egenix-mxdatetime
       - python-egenix-mxtools
 
-#      - gnuplot
-#      - gnuplot-nox
-#      - gnuplot-x11
-#
-#      - libtemplate-perl
-#      - libjson-perl
-#      - libdbi-perl
-#      - libdbd-mysql-perl
-#      - libdbd-pg-perl
-#      - libdbd-sqlite3-perl
-#
-#      - make
-#
-#      - source-highlight
+      - gnuplot
+      - gnuplot-nox
+      - gnuplot-x11
+
+      - libtemplate-perl
+      - libjson-perl
+      - libdbi-perl
+      - libdbd-mysql-perl
+      - libdbd-pg-perl
+      - libdbd-sqlite3-perl
+
+      - make
+
+      - source-highlight
