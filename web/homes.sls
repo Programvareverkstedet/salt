@@ -5,7 +5,6 @@ include:
   cmd.wait:
     - watch:
       - file: /usr/local/sbin/fiks-pvv-apache.sh
-      - file: /etc/apache2/ports.conf
 {% if grains['oscodename'] == 'wheezy' %}
       - file: /etc/apache2/sites-available/www.pvv.ntnu.no
 {% else %}
@@ -20,10 +19,6 @@ include:
   file.managed:
     - source: salt://{{ tpldir }}/fiks-pvv-apache-homes.sh
     - mode: 500
-
-/etc/apache2/ports.conf:
-  file.managed:
-    - source: salt://{{ tpldir }}/ports.conf
 
 {% if grains['oscodename'] == 'wheezy' %}
 /etc/apache2/sites-available/www.pvv.ntnu.no:
