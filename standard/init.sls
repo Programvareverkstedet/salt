@@ -21,6 +21,8 @@ include:
 
 # See also mandatory_packages in ../mandatory/init.sls
 standard_packages:
+
+
   pkg.installed:
     - pkgs:
       # IRC clients
@@ -78,9 +80,21 @@ standard_packages:
       - indent
       - perl-doc
       - ruby
+      # Shells
+      - zsh
+      - tcsh
       # Misc toys/games
       - figlet
       - fortunes
+      # Kjekt å ha
+      - rsync
+      - rwho
+      - rwhod
+      - munin-node
+      - unzip
+      - zip
+      # Fordi resize er der
+      - xterm
 {% if grains.osarch != 'ia64' %}
       - valgrind
 {% endif %}

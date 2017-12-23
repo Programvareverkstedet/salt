@@ -56,25 +56,23 @@ web_homes_packages:
       - libapache2-mod-php5
       - libapache2-mod-lisp2
       - libapache2-mod-rpaf
-      - php5-auth-pam
-      - php5-cgi
-      - php5-cli
-      - php5-curl
-      - php5-gd
-      - php5-imagick
-      - php5-mysql
-      - php5-pgsql
-      - php5-ps
-      - php5-recode
-      - php5-sqlite
-      - php5-xmlrpc
-      - php5-xsl
-      - php5-json
+      - php-auth-pam
+      - php-cgi
+      - php-cli
+      - php-curl
+      - php-gd
+      - php-imagick
+      - php-mysql
+      - php-pgsql
+      - php-ps
+      - php-recode
+      - php-sqlite
+      - php-xmlrpc
+      - php-xsl
+      - php-json
       - php-fpdf
       - jhead
       - imagemagick
-      - libmagick9-dev
-      - libmagick10
       - ruby
       - ikiwiki
       - rails
@@ -84,35 +82,9 @@ web_homes_packages:
       - mediawiki
       - nanoblogger
 
-      # Webmail
-      - squirrelmail
-      - squirrelmail-decode
-
-      # Kjekt å ha
-      - vim
-      - indent
-      - rsync
-      - rwho
-      - rwhod
-      - munin-node
-      - unzip
-      - zip
-      # Fordi resize er der
-      - xterm
-
-      # skall
-      - zsh
-      - tcsh
-
-      # Litt småtteri til folk som bruker mindterm
-      - alpine
-      - mutt
-      - irssi
-      - alpine
-
       #diverse forespurt og deres deps
       - python-kid
-      - python2.5
+      - python2.7
       - python-xapian
 
       - python-pgsql
