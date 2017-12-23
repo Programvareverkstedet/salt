@@ -80,16 +80,16 @@ web_homes_packages:
       - mediawiki
       - nanoblogger
 
-#      #diverse forespurt og deres deps
-#      - python-kid
-#      - python2.7
-#      - python-xapian
-#
-#      - python-pygresql
-#      - python-mysqldb
-#      - python-egenix-mxdatetime
-#      - python-egenix-mxtools
-#
+      #diverse forespurt og deres deps
+      - python-kid
+      - python2.7
+      - python-xapian
+
+      - python-pygresql
+      - python-mysqldb
+      - python-egenix-mxdatetime
+      - python-egenix-mxtools
+
 #      - gnuplot
 #      - gnuplot-nox
 #      - gnuplot-x11
