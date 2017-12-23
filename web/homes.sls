@@ -12,7 +12,7 @@ include:
 {% endif %}
       - file: /etc/apache2/mods-available/userdir.conf
       - file: /etc/apache2/mods-available/dir.conf
-      - file: /etc/php5/conf.d/php_pvv.ini
+      - file: /etc/php/7.0/apache2/conf.d/pvv.ini
       - file: /usr/local/sbin/apache-logger
       - file: /etc/apache2/certs/www.pvv.ntnu.no.crt
       - file: /etc/apache2/certs/www.pvv.ntnu.no.key
@@ -36,7 +36,7 @@ include:
   file.managed:
     - source: salt://{{ tpldir }}/mods-available/dir.conf
 
-/etc/php5/conf.d/php_pvv.ini:
+/etc/php/7.0/apache2/conf.d/php_pvv.ini:
   file.managed:
     - source: salt://{{ tpldir }}/php_pvv.ini
 
@@ -44,10 +44,6 @@ include:
   file.managed:
     - source: salt://{{ tpldir }}/apache-logger
     - mode: 555
-
-/etc/squirrelmail/config_local.php:
-  file.managed:
-    - source: salt://{{ tpldir }}/webmail/config_local.php
 
 /usr/local/bin/pvv-php-sendmail-wrapper:
   file.managed:
