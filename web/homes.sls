@@ -87,6 +87,7 @@ packages_web_homes_php:
       - php-xsl
       - php-json
       - php-fpdf
+      - php-xml
 
 packages_web_homes_python:
   pkg.installed:
