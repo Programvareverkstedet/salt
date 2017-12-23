@@ -12,11 +12,7 @@
 
 {% if 'pkgsync' in grains.roles %}
 
-{% if 'web-homes' in grains.roles %}
-{% set syncdir = 'web' %}
-{% else %}
 {% set syncdir = 'default' %}
-{% endif %}
 
 /etc/pkgsync/musthave:
   file.managed:

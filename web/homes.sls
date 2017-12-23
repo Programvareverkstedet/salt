@@ -48,3 +48,89 @@ include:
 /usr/local/bin/pvv-php-sendmail-wrapper:
   file.managed:
     - source: salt://{{ tpldir }}/pvv-php-sendmail-wrapper
+
+web_homes_packages:
+  pkg.installed:
+    - pkgs:
+      - apache2
+      - libapache2-mod-php5
+      - libapache2-mod-lisp2
+      - libapache2-mod-rpaf
+      - php5-auth-pam
+      - php5-cgi
+      - php5-cli
+      - php5-curl
+      - php5-gd
+      - php5-imagick
+      - php5-mysql
+      - php5-pgsql
+      - php5-ps
+      - php5-recode
+      - php5-sqlite
+      - php5-xmlrpc
+      - php5-xsl
+      - php5-json
+      - php-fpdf
+      - jhead
+      - imagemagick
+      - libmagick9-dev
+      - libmagick10
+      - ruby
+      - ikiwiki
+      - rails
+      - rcs
+      - blosxom
+      - pyblosxom
+      - mediawiki
+      - nanoblogger
+
+      # Webmail
+      - squirrelmail
+      - squirrelmail-decode
+
+      # Kjekt å ha
+      - vim
+      - indent
+      - rsync
+      - rwho
+      - rwhod
+      - munin-node
+      - unzip
+      - zip
+      # Fordi resize er der
+      - xterm
+
+      # skall
+      - zsh
+      - tcsh
+
+      # Litt småtteri til folk som bruker mindterm
+      - alpine
+      - mutt
+      - irssi
+      - alpine
+
+      #diverse forespurt og deres deps
+      - python-kid
+      - python2.5
+      - python-xapian
+
+      - python-pgsql
+      - python-mysqldb
+      - python-egenix-mxdatetime
+      - python-egenix-mxtools
+
+      - gnuplot
+      - gnuplot-nox
+      - gnuplot-x11
+
+      - libtemplate-perl
+      - libjson-perl
+      - libdbi-perl
+      - libdbd-mysql-perl
+      - libdbd-pg-perl
+      - libdbd-sqlite3-perl
+
+      - make
+
+      - source-highlight
