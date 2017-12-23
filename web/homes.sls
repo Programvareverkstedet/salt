@@ -53,10 +53,9 @@ web_homes_packages:
   pkg.installed:
     - pkgs:
       - apache2
-      - libapache2-mod-php5
-      - libapache2-mod-lisp2
+      - libapache2-mod-php
+      - libapache2-mod-lisp
       - libapache2-mod-rpaf
-      - php-auth-pam
       - php-cgi
       - php-cli
       - php-curl
@@ -64,9 +63,8 @@ web_homes_packages:
       - php-imagick
       - php-mysql
       - php-pgsql
-      - php-ps
       - php-recode
-      - php-sqlite
+      - php-sqlite3
       - php-xmlrpc
       - php-xsl
       - php-json
@@ -87,7 +85,7 @@ web_homes_packages:
       - python2.7
       - python-xapian
 
-      - python-pgsql
+      - python-pygresql
       - python-mysqldb
       - python-egenix-mxdatetime
       - python-egenix-mxtools
