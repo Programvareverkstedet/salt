@@ -40,7 +40,3 @@
   'roles:web-homes':
     - match: grain
     - web.homes
-
-  'roles:desktop':
-    - match: grain
-    - desktop

@@ -4,9 +4,9 @@
 }.get(grains.kernel) %}
 
 {% set cups_service_name = {
-    'Linux': 'cups',
+    'Arch': 'org.cups.cupsd',
     'FreeBSD': 'cupsd',
-}.get(grains.kernel) %}
+}.get(grains.os_family, 'cups') %}
 
 cups:
   pkg.installed

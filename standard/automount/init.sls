@@ -22,9 +22,12 @@
       - file: {{ automount_file }}
 
 {% if grains['kernel'] == 'Linux' %}
+{% set nfs_package = {
+    'Debian': 'nfs-common',
+}.get(grains.os_family, 'nfs-utils') %}
 nfs.packages:
   pkg.installed:
   - pkgs:
-    - nfs-common
+    - {{ nfs_package }}
     - autofs
 {% endif %}

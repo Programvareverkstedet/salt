@@ -1,16 +1,11 @@
 {% set use_saltstack_apt = grains.os_family is defined and grains.os_family == 'Debian' %}
 
 {% if use_saltstack_apt %}
-{% if grains.oscodename == 'wily' %}
-{% set osdir = '14.04' %}
-{% set oscodename = 'trusty' %}
-{% else %}
 {% set osdir = {
     'Ubuntu': grains.osrelease,
     'Debian': grains.osmajorrelease,
 }.get(grains.os) %}
 {% set oscodename = grains.oscodename %}
-{% endif %}
 {% set saltstack_apt_url = 'repo.saltstack.com/apt/' ~ grains.os | lower ~ '/' ~ osdir ~ '/amd64/latest' %}
 {% endif %}
 
