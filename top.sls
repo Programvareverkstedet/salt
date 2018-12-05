@@ -24,6 +24,7 @@
   'roles:file-server':
     - match: grain
     - fileserver
+    - standard.passwd.passwd-pvv
 
   'roles:mysql-server':
     - match: grain

@@ -2,7 +2,6 @@
 # ligger i pillar/files/nodegroups/all/files/passwd.pvv
 
 include:
-  - .passwd-pvv
   - .usersync-salt-yaml
 
 /etc/netgroup:
