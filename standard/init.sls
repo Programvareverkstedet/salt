@@ -55,7 +55,6 @@ standard_packages:
       - bzr
       - cvs
       - git
-      - git-arch
       - git-cvs
       - git-doc
       - git-email
