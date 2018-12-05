@@ -59,7 +59,10 @@ standard_packages:
       - git-doc
       - git-email
       - git-svn
+# The hgsubversion package is missing from ubuntu 18.04 and 18.10.
+{% if grains.osrelease_info[0] != 18 %}
       - hgsubversion
+{% endif %}
       - mercurial
       - rcs
       - subversion
