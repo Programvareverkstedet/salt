@@ -5,7 +5,7 @@
 {{ saltenv }}:
   '*':
     - mandatory
-    - salt.minion
+    - salt
 
   # Konfig som skal til alle unntatt lommel, som er salt-master
   'roles:standard':
@@ -25,6 +25,7 @@
     - match: grain
     - fileserver
     - standard.passwd.passwd-pvv
+    - salt.minion.fileserver
 
   'roles:mysql-server':
     - match: grain

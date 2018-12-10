@@ -26,8 +26,8 @@ modify_etc_bashrc:
 
 /etc/salt/master.d/pvv.conf:
   file.managed:
-    - source: salt://{{ tpldir }}/master.d/pvv.conf.py
-    - template: py
+    - source: salt://{{ tpldir }}/master.d/pvv.conf
+    - template: jinja
 
 salt-master:
   pkg.installed: []

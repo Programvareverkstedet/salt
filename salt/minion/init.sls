@@ -1,32 +1,20 @@
-include:
-  - .packages
+{% from "salt/map.jinja" import salt_settings with context %}
+{% set pvv_config = salt_settings.config_path+"/minion.d/pvv.conf" %}
 
-{% set salt_config_dir = {
-    'Linux': '/etc/salt',
-    'FreeBSD': '/usr/local/etc/salt',
-}.get(grains.kernel) %}
-
-{% set salt_minion_service = {
-    'Linux': 'salt-minion',
-    'FreeBSD': 'salt_minion',
-}.get(grains.kernel) %}
-
-# Was renamed to pvv.conf
-{{ salt_config_dir }}/minion.d/environment.conf:
-  file.absent
-
-{{ salt_config_dir }}/minion.d/pvv.conf:
+salt_minion_config:
   file.managed:
+    - name: {{ pvv_config }}
     - source: salt://{{ tpldir }}/minion.d/pvv.conf
 
-{{ salt_minion_service }}:
+salt_minion_service:
   service.running:
+    - name: {{ salt_settings.minion_service }}
     - watch:
-      - file: {{ salt_config_dir }}/minion.d/environment.conf
+      - file: {{ pvv_config }}
 
-{{ pillar.cron_daily }}/pvv-salt:
+pvv_salt_cron_job:
   file.managed:
+    - name: {{ pillar.cron_daily }}/pvv-salt
     - source: salt://{{ tpldir }}/pvv-salt.cron
     - mode: 755
-
 
