@@ -7,6 +7,8 @@ pvvuser_{{ pvvuser.name }}:
     - home: {{ pvvuser.home }}
     - fullname: {{ pvvuser.fullname|yaml_encode }}
     - shell: {{ pvvuser.shell }}
+    - allow_uid_change: True
+    - allow_gid_change: True
     - createhome: False
 {% endfor %}
 
